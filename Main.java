@@ -20,6 +20,7 @@ public class Main {
             switch (choice) {
                 case 1:
                     System.out.println("Nome: ");
+                    scanner.nextLine(); // Consuma il newline
                     String des = scanner.nextLine();
 
                     System.out.println("ID: ");
@@ -46,7 +47,7 @@ public class Main {
                         scaduti.add(F);
                     }
 
-                    System.out.println("Prodotto aggiunta con successo.");
+                    System.out.println("Prodotto aggiunto con successo.");
 
                     break;
                 case 2:
@@ -70,15 +71,14 @@ public class Main {
         scanner.close();
     }
 
-    public static void Menu(){
+    public static void Menu() {
         System.out.println("0) Esci");
         System.out.println("1) Inserisci un nuovo prodotto");
         System.out.println("2) Preleva un prodotto");
         System.out.println("3) Stampa tutti i prodotti");
         System.out.println("4) Stampa i prodotti scaduti");
-        System.out.println("5) num di confez. per prodooto");
+        System.out.println("5) Num di confez. per prodotto");
         System.out.println("6) Salva");
-
     }
 
 }
