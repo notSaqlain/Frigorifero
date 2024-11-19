@@ -19,7 +19,7 @@ public class Frigorifero {
 
     @Override
     public String toString() {
-        return "Frigorifero [id=" + id + ", des=" + des + ", cal=" + cal + ", expiryDate=" + expiryDate + "]";
+        return "[id=" + id + ", des=" + des + ", cal=" + cal + ", expiryDate=" + expiryDate + "]";
     }
 
     
