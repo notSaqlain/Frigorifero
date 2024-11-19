@@ -74,11 +74,13 @@ public class Main {
                     for (int i = 0; i < prodotti.size(); i++) {
                         System.out.println(i + ") " + prodotti.get(i));
                     }
+                    System.out.println();
 
                     System.out.println("Prodotti scaduti:");
                     for (int i = 0; i < scaduti.size(); i++) {
                         System.out.println(i + ") " + scaduti.get(i));
                     }
+                    System.out.println();
                     break;
 
                 case 4:
