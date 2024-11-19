@@ -20,7 +20,7 @@ public class Main {
             switch (choice) {
                 case 1:
                     System.out.println("Nome: ");
-                    scanner.nextLine(); // Consuma il newline
+                    scanner.nextLine();
                     String des = scanner.nextLine();
 
                     System.out.println("ID: ");
