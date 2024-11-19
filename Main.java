@@ -6,53 +6,72 @@ public class Main {
 
     public static void main(String[] args) {
         LocalDate today = LocalDate.now();
-        ArrayList<Frigorifero> barche = new ArrayList<>();
+        ArrayList<Frigorifero> prodotti = new ArrayList<>();
+        ArrayList<Frigorifero> scaduti = new ArrayList<>();
         System.out.println(today);
         Scanner scanner = new Scanner(System.in);
 
-        int choice = 0;
-        Menu();
-        switch (choice) {
-            case 1:
-                System.out.println("Nome: ");
-                String des = scanner.nextLine();
+        int choice = 1;
 
-                System.out.println("ID: ");
-                int id = scanner.nextInt();
+        do {
+            Menu();
+            choice = scanner.nextInt();
 
-                System.out.println("Calorie: ");
-                int cal = scanner.nextInt();
+            switch (choice) {
+                case 1:
+                    System.out.println("Nome: ");
+                    String des = scanner.nextLine();
 
-                System.out.println("Data di scadenza: ");
-                System.out.print("Giorno: ");
-                int d = scanner.nextInt();
-                System.out.print("Mese: ");
-                int m = scanner.nextInt();
-                System.out.print("Anno: ");
-                int y = scanner.nextInt();
+                    System.out.println("ID: ");
+                    int id = scanner.nextInt();
 
-                LocalDate expiryDate = LocalDate.of(y, m, d);
+                    System.out.println("Calorie: ");
+                    int cal = scanner.nextInt();
 
-                Frigorifero F = new Frigorifero(id, des, cal, expiryDate);
-                
-                break;
-            case 2:
-                break;
-            case 3:
-                break;
-            case 4:
-                break;
-            case 5:
-                break;
-            case 6:
-                break;
-            default:
-                break;
-        }
+                    System.out.println("Data di scadenza: ");
+                    System.out.print("Giorno: ");
+                    int d = scanner.nextInt();
+                    System.out.print("Mese: ");
+                    int m = scanner.nextInt();
+                    System.out.print("Anno: ");
+                    int y = scanner.nextInt();
+
+                    LocalDate expiryDate = LocalDate.of(y, m, d);
+
+                    Frigorifero F = new Frigorifero(id, des, cal, expiryDate);
+
+                    if (today.isBefore(expiryDate)) {
+                        prodotti.add(F);
+                    } else {
+                        scaduti.add(F);
+                    }
+
+                    System.out.println("Prodotto aggiunta con successo.");
+
+                    break;
+                case 2:
+                    System.out.print("Inserisci il prodotto da prelevare: ");
+                    break;
+                case 3:
+                    for (Frigorifero P : prodotti) {
+                        System.out.println(P);
+                    }
+                    break;
+                case 4:
+                    break;
+                case 5:
+                    break;
+                case 6:
+                    break;
+                default:
+                    break;
+            }
+        } while (choice != 0);
         scanner.close();
     }
 
     public static void Menu(){
+        System.out.println("0) Esci");
         System.out.println("1) Inserisci un nuovo prodotto");
         System.out.println("2) Preleva un prodotto");
         System.out.println("3) Stampa tutti i prodotti");
