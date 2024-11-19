@@ -7,6 +7,25 @@ public class Main {
         LocalDate today = LocalDate.now();
         System.out.println(today);
         Scanner scanner = new Scanner(System.in);
+
+        int choice = 0;
+        Menu();
+        switch (choice) {
+            case 1:
+                break;
+            case 2:
+                break;
+            case 3:
+                break;
+            case 4:
+                break;
+            case 5:
+                break;
+            case 6:
+                break;
+            default:
+                break;
+        }
         scanner.close();
     }
 
@@ -16,7 +35,7 @@ public class Main {
         System.out.println("3) Stampa tutti i prodotti");
         System.out.println("4) Stampa i prodotti scaduti");
         System.out.println("5) num di confez. per prodooto");
-        System.out.println("6) Salav");
+        System.out.println("6) Salva");
 
     }
 
