@@ -51,14 +51,38 @@ public class Main {
 
                     break;
                 case 2:
-                    System.out.print("Inserisci il prodotto da prelevare: ");
-                    break;
-                case 3:
-                    for (Frigorifero P : prodotti) {
-                        System.out.println(P);
+                    System.out.print("0) Prodotti disponibili \n 1) Prodotti scaduti");
+                    int temp = scanner.nextInt();
+                    int prod;
+                    if (temp == 0) {
+                        System.out.print("Scrivi l'indice di prodotto da prelevare: ");
+                        prod = scanner.nextInt();
+                        System.out.println("il prodotto " + prodotti.get(prod) + " prelevato!");
+                        prodotti.remove(prod);
+                    } else if (temp == 1) {
+                        System.out.print("Scrivi l'indice di prodotto scaduto da prelevare: ");
+                        prod = scanner.nextInt();
+                        System.out.println("il prodotto scaduto " + scaduti.get(prod) + " prelevato!");
+                        scaduti.remove(prod);
                     }
                     break;
+                case 3:
+                    System.out.println("Prodotti disponibili:");
+                    for (int i = 0; i < prodotti.size(); i++) {
+                        System.out.println(i + ") " + prodotti.get(i));
+                    }
+
+                    System.out.println("Prodotti scaduti:");
+                    for (int i = 0; i < scaduti.size(); i++) {
+                        System.out.println(i + ") " + scaduti.get(i));
+                    }
+
+                    break;
                 case 4:
+                    System.out.println("Prodotti Scaduti: ");
+                    for (Frigorifero S : scaduti) {
+                        System.out.println(S);
+                    }
                     break;
                 case 5:
                     break;
