@@ -17,6 +17,18 @@ public class Frigorifero {
         return id;
     }
 
+    public String getDes(){
+        return des;
+    }
+
+    public int getCal(){
+        return cal;
+    }
+
+    public LocalDate getExpiryDate(){
+        return expiryDate;
+    }
+
     @Override
     public String toString() {
         return "[id=" + id + ", des=" + des + ", cal=" + cal + ", expiryDate=" + expiryDate + "]";
