@@ -1,3 +1,5 @@
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.time.LocalDate;
@@ -48,24 +50,25 @@ public class Main {
                     }
 
                     System.out.println("Prodotto aggiunto con successo.");
-
                     break;
+
                 case 2:
-                    System.out.print("0) Prodotti disponibili \n 1) Prodotti scaduti");
+                    System.out.print("0) Prodotti disponibili \n1) Prodotti scaduti\n");
                     int temp = scanner.nextInt();
                     int prod;
                     if (temp == 0) {
                         System.out.print("Scrivi l'indice di prodotto da prelevare: ");
                         prod = scanner.nextInt();
-                        System.out.println("il prodotto " + prodotti.get(prod) + " prelevato!");
+                        System.out.println("Il prodotto " + prodotti.get(prod) + " prelevato!");
                         prodotti.remove(prod);
                     } else if (temp == 1) {
                         System.out.print("Scrivi l'indice di prodotto scaduto da prelevare: ");
                         prod = scanner.nextInt();
-                        System.out.println("il prodotto scaduto " + scaduti.get(prod) + " prelevato!");
+                        System.out.println("Il prodotto scaduto " + scaduti.get(prod) + " prelevato!");
                         scaduti.remove(prod);
                     }
                     break;
+
                 case 3:
                     System.out.println("Prodotti disponibili:");
                     for (int i = 0; i < prodotti.size(); i++) {
@@ -76,18 +79,25 @@ public class Main {
                     for (int i = 0; i < scaduti.size(); i++) {
                         System.out.println(i + ") " + scaduti.get(i));
                     }
-
                     break;
+
                 case 4:
                     System.out.println("Prodotti Scaduti: ");
                     for (Frigorifero S : scaduti) {
                         System.out.println(S);
                     }
                     break;
+
                 case 5:
+                    // Placeholder per il case 5
                     break;
+
                 case 6:
+                    salva(prodotti, "Prodotti.csv");
+                    salva(scaduti, "Scaduti.csv");
+                    System.out.println("Prodotti salvati con successo!");
                     break;
+
                 default:
                     break;
             }
@@ -105,4 +115,18 @@ public class Main {
         System.out.println("6) Salva");
     }
 
+    public static void salva(ArrayList<Frigorifero> lista, String filename) {
+        try (FileWriter writer = new FileWriter(filename)) {
+            // Scrivi l'intestazione del file CSV
+            writer.write("ID,Nome,Calorie,Data di Scadenza\n");
+
+            // Scrivi ogni prodotto nel file
+            for (Frigorifero prodotto : lista) {
+                writer.write(prodotto.getId() + "," + prodotto.getDes() + "," +
+                             prodotto.getCal() + "," + prodotto.getExpiryDate() + "\n");
+            }
+        } catch (IOException e) {
+            System.out.println("Errore durante il salvataggio del file: " + e.getMessage());
+        }
+    }
 }
