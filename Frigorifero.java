@@ -13,4 +13,14 @@ public class Frigorifero {
         this.expiryDate = expiryDate;
     }
 
+    public int getId(){
+        return id;
+    }
+
+    @Override
+    public String toString() {
+        return "Frigorifero [id=" + id + ", des=" + des + ", cal=" + cal + ", expiryDate=" + expiryDate + "]";
+    }
+
+    
 }
