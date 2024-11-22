@@ -140,14 +140,14 @@ public class Main {
 
     public static void salva(ArrayList<Frigorifero> lista, String filename) {
         try (FileWriter writer = new FileWriter(filename)) {
-            // Scrivi l'intestazione del file CSV
-            writer.write("ID,Nome,Calorie,Data di Scadenza\n");
+            
+            writer.write("ID | Nome | Calorie | Data di Scadenza\n");
 
-            // Scrivi ogni prodotto nel file
             for (Frigorifero prodotto : lista) {
-                writer.write(prodotto.getId() + "," + prodotto.getDes() + "," +
-                             prodotto.getCal() + "," + prodotto.getExpiryDate() + "\n");
+                writer.write(prodotto.getId() + " | " + prodotto.getDes() + " | " +
+                             prodotto.getCal() + " | " + prodotto.getExpiryDate() + "\n");
             }
+            
         } catch (IOException e) {
             System.out.println("Errore durante il salvataggio del file: " + e.getMessage());
         }
