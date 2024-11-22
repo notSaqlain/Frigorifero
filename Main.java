@@ -12,7 +12,7 @@ public class Main {
         ArrayList<Frigorifero> prodotti = new ArrayList<>();
         ArrayList<Frigorifero> scaduti = new ArrayList<>();
         System.out.println(today);
-        HashMap<Integer, Frigorifero> itemMap = new HashMap<>();
+        HashMap<Integer, Frigorifero> frigoriferoMap = new HashMap<>();
         int quantita = 0;
         Scanner scanner = new Scanner(System.in);
 
@@ -94,6 +94,16 @@ public class Main {
                     break;
 
                 case 5:
+                    // calcola il num di prodotti con stesso id
+                    for (Frigorifero f : prodotti) {
+                        frigoriferoMap.put(f.getId(), f);
+                    }
+
+                    for (Integer i : frigoriferoMap.keySet()) {
+                        System.out.println("ID: " + i + " => " + frigoriferoMap.get(i));
+                    }
+
+
                     break;
 
                 case 6:
