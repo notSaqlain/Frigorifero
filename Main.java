@@ -3,6 +3,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.time.LocalDate;
+import java.util.HashMap;
 
 public class Main {
 
@@ -11,6 +12,8 @@ public class Main {
         ArrayList<Frigorifero> prodotti = new ArrayList<>();
         ArrayList<Frigorifero> scaduti = new ArrayList<>();
         System.out.println(today);
+        HashMap<Integer, Frigorifero> itemMap = new HashMap<>();
+        int quantita = 0;
         Scanner scanner = new Scanner(System.in);
 
         int choice = 1;
