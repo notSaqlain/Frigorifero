@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import java.time.LocalDate;
 import java.util.HashMap;
+import java.util.Map;
 
 public class Main {
 
@@ -12,8 +13,6 @@ public class Main {
         ArrayList<Frigorifero> prodotti = new ArrayList<>();
         ArrayList<Frigorifero> scaduti = new ArrayList<>();
         System.out.println(today);
-        HashMap<Integer, Frigorifero> frigoriferoMap = new HashMap<>();
-        int quantita = 0;
         Scanner scanner = new Scanner(System.in);
 
         int choice = 1;
@@ -94,14 +93,16 @@ public class Main {
                     break;
 
                 case 5:
-                    // calcola il num di prodotti con stesso id
+                    Map<Integer, Integer> idCountMap = new HashMap<>();
+
                     for (Frigorifero f : prodotti) {
-                        frigoriferoMap.put(f.getId(), f);
+                        idCountMap.put(f.getId(), idCountMap.getOrDefault(f.getId(), 0) + 1);
                     }
 
-                    for (Integer i : frigoriferoMap.keySet()) {
-                        System.out.println("ID: " + i + " => " + frigoriferoMap.get(i));
+                    for (Map.Entry<Integer, Integer> entry : idCountMap.entrySet()) {
+                        System.out.println("ID: " + entry.getKey() + " => Numero di prodotti: " + entry.getValue());
                     }
+
 
 
                     break;
