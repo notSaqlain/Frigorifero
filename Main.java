@@ -102,8 +102,16 @@ public class Main {
                     for (Map.Entry<Integer, Integer> entry : idCountMap.entrySet()) {
                         System.out.println("ID: " + entry.getKey() + " => Numero di prodotti: " + entry.getValue());
                     }
+                    
+                    idCountMap.clear();
 
+                    for (Frigorifero f : scaduti) {
+                        idCountMap.put(f.getId(), idCountMap.getOrDefault(f.getId(), 0) + 1);
+                    }
 
+                    for (Map.Entry<Integer, Integer> entry : idCountMap.entrySet()) {
+                        System.out.println("ID: " + entry.getKey() + " => Numero di prodotti scaduti: " + entry.getValue());
+                    }
 
                     break;
 
