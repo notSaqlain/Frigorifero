@@ -93,23 +93,23 @@ public class Main {
                     break;
 
                 case 5:
-                    Map<Integer, Integer> idCountMap = new HashMap<>();
+                    Map<Integer, Integer> quantita = new HashMap<>();
 
                     for (Frigorifero f : prodotti) {
-                        idCountMap.put(f.getId(), idCountMap.getOrDefault(f.getId(), 0) + 1);
+                        quantita.put(f.getId(), quantita.getOrDefault(f.getId(), 0) + 1);
                     }
 
-                    for (Map.Entry<Integer, Integer> entry : idCountMap.entrySet()) {
+                    for (Map.Entry<Integer, Integer> entry : quantita.entrySet()) {
                         System.out.println("ID: " + entry.getKey() + " => Numero di prodotti: " + entry.getValue());
                     }
                     
-                    idCountMap.clear();
+                    quantita.clear();
 
                     for (Frigorifero f : scaduti) {
-                        idCountMap.put(f.getId(), idCountMap.getOrDefault(f.getId(), 0) + 1);
+                        quantita.put(f.getId(), quantita.getOrDefault(f.getId(), 0) + 1);
                     }
 
-                    for (Map.Entry<Integer, Integer> entry : idCountMap.entrySet()) {
+                    for (Map.Entry<Integer, Integer> entry : quantita.entrySet()) {
                         System.out.println("ID: " + entry.getKey() + " => Numero di prodotti scaduti: " + entry.getValue());
                     }
 
